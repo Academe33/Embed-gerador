@@ -26,7 +26,7 @@
       max-width: 600px;
       text-align: center;
     }
-    input[type="text"], input[type="color"] {
+    input[type="text"] {
       width: calc(100% - 22px);
       padding: 10px;
       margin-bottom: 10px;
@@ -70,8 +70,6 @@
     <h2>Gerador de Código Embed</h2>
     <p>Cole o link que deseja embedar:</p>
     <input type="text" id="linkInput" placeholder="Cole o link aqui...">
-    <label for="bgColorInput"/label>
-    <input type="color" id="bgColorInput" value="#ffffff">
     <button onclick="gerarEmbed()">Gerar Embed</button>
     
     <div id="embedContainer" style="display: none;">
@@ -83,7 +81,6 @@
   <script>
     function gerarEmbed() {
       const link = document.getElementById('linkInput').value.trim();
-      const bgColor = document.getElementById('bgColorInput').value;
       if (!link) {
         alert('Por favor, insira um link válido.');
         return;
@@ -96,7 +93,7 @@
       }
 
       // Gerar o código de embed
-      const embedCode = `<iframe src="${link}" width="100%" height="600px" style="background-color: ${bgColor};" frameborder="0"></iframe>`;
+      const embedCode = `<iframe src="${link}" width="100%" height="600px" frameborder="0"></iframe>`;
 
       // Atualizar o textarea com o código de embed
       const embedCodeTextarea = document.getElementById('embedCode');
